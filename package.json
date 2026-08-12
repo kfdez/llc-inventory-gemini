@@ -1,5 +1,5 @@
 {
-  "name": "react-example",
+  "name": "llc-inventory-gemini",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,18 +8,31 @@
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "node --test",
+    "worker:build": "vite build",
+    "deploy": "bun run worker:build && wrangler deploy",
+    "deploy:dry-run": "bun run worker:build && wrangler deploy --dry-run",
+    "bot:start": "node src/index.cjs",
+    "db:init": "node src/storage/initDb.js",
+    "demo:capture": "node src/dev/demoCapture.js",
+    "demo:analyze": "node src/dev/analyzeImage.js",
+    "collectr:relay": "node src/collectr/localRelay.js"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "dotenv": "^17.2.3",
+    "discord.js": "^14.26.3",
     "express": "^4.21.2",
+    "jsqr": "^1.4.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
+    "pino": "^9.7.0",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
+    "sharp": "^0.35.3",
     "vite": "^6.2.3",
     "zxing-wasm": "^3.1.2"
   },
@@ -30,7 +43,7 @@
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.3",
-    "@types/express": "^4.17.21"
+    "@types/express": "^4.17.21",
+    "wrangler": "^4.0.0"
   }
 }
