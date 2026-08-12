@@ -345,10 +345,13 @@ header {
 
 .mode-drawer {
   position: fixed;
-  top: 0;
+  top: max(12px, env(safe-area-inset-top, 0px));
   right: 0;
-  bottom: 0;
+  bottom: max(12px, env(safe-area-inset-bottom, 0px));
   width: min(85vw, 320px);
+  max-height: calc(100dvh - max(12px, env(safe-area-inset-top, 0px)) - max(12px, env(safe-area-inset-bottom, 0px)));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--surface-card);
   border-left: 1px solid var(--surface-border);
   padding: 20px;
