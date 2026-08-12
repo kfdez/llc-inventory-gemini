@@ -1,4 +1,4 @@
-const CACHE = "card-scanner-v18";
+const CACHE = "card-scanner-v19";
 const APP_SHELL = ["/", "/manifest.webmanifest", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
