@@ -1054,11 +1054,23 @@ summary {
 .cart-summary, .audit-summary {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
   padding: 10px 12px;
   background: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: 9px;
   font-size: 0.85rem;
+}
+
+.cart-summary > div, .audit-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cart-summary span, .audit-summary span {
+  color: var(--text-muted);
 }
 
 .cart-summary strong, .audit-summary strong {
